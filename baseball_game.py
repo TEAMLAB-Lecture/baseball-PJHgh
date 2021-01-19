@@ -136,13 +136,10 @@ def get_not_duplicated_three_digit_number():
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     # get_random_number() 함수를 사용하여 random number 생성
-    import random
-    number = []
-    while len(number) < 3:
-        n = random.randint(1, 9)
-        if not str(n) in number: number.append(str(n))
-    result = ''.join(number)
-    return result
+    number = get_random_number()
+    while is_duplicated_number(number):
+        number = get_random_number()
+    return number
 
 
 def get_strikes_or_ball(user_input_number, random_number):
