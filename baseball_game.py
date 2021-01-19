@@ -244,24 +244,25 @@ def is_no(one_more_input):
 def playgame():
     random_number = str(get_not_duplicated_three_digit_number())
     print("Random Number is : ", random_number)
-    # ===Modify codes below=============
     while True:
         user_input_number = input('Input guess number : ')
-        if not is_validated_number(user_input_number):
+        if user_input_number == '0': return 0
+        elif not is_validated_number(user_input_number):
             print("Wrong Input, Input again")
             continue
         strikes, balls = get_strikes_or_ball(user_input_number, random_number)
         print('Strikes : %d, Balls : %d'%(strikes, balls))
         if strikes == 3: break
+    return 1
 
         
 def main():
     print("Play Baseball")
-    playgame()
-    while True:
+    play = playgame()
+    while play == 1:
         one_more_input = input('You win, one more(Y/N)?')
-        if is_yes(one_more_input): playgame()
-        elif is_no(one_more_input): break
+        if is_yes(one_more_input): play = playgame()
+        elif is_no(one_more_input): play = 0
         else:
             print("Wrong Input, Input again")
             continue
