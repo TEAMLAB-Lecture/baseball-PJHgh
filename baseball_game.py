@@ -245,7 +245,6 @@ def is_no(one_more_input):
     return result
 
 def playgame():
-    user_input = 999
     random_number = str(get_not_duplicated_three_digit_number())
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
